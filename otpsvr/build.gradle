@@ -1,0 +1,9 @@
+apply plugin: 'java'
+version '1.0'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
