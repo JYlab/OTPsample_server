@@ -25,7 +25,7 @@ public class SampleInfo {
     }
 
     public static HashMap<String,String> getSampleInfo(){
-        sampleInfo.put(sampleID,samplePW);
+        sampleInfo.put(sampleID,sampleUUID);
 
         return sampleInfo;
 

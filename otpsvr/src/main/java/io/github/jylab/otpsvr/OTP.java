@@ -25,10 +25,10 @@ public class OTP  {
     }
 
 
-    public static void getUniqInfo(String encData){
+    public static void setUniqInfo(String encData){
         byte [] recvData=null;
         try {
-            otpApi.getUniqInfo(encData);
+            otpApi.setUniqInfo(encData);
 
         }catch (Exception e){
             e.printStackTrace();

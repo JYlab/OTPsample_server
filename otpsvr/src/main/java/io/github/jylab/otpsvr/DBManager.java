@@ -12,8 +12,10 @@ public class DBManager {
     }
 
     public boolean userCheck(String UniqInfo){
+        if(UniqInfo.equals("520c0503015b540f5453010350065056"))
+            return true;
 
-        return true;
+        return false;
 
     }
 
@@ -21,7 +23,6 @@ public class DBManager {
 
         HashMap<String,String > SampleInfo=null;
         SampleInfo= getSampleInfo();
-
         if(SampleInfo==null)
             return null;
 

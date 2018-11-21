@@ -23,13 +23,12 @@ public class APISelector  {
     public static class OTPApiLevel1 implements OTPApi {
         private static HashMap<String, String> UserInfo = new HashMap<String, String>();
 
-        private static String UniqInfo = "";
-        private static byte[] recvData;
+        private static String uniqInfo = "";
         private static byte[] otp = null;
 
 
-        public void getUniqInfo(String encData) {
-            recvData = Base64Coder.decode(encData);
+        public void setUniqInfo(String recvData) {
+            uniqInfo = recvData;
         }
 
         public byte[] generateOTP() {
@@ -40,9 +39,8 @@ public class APISelector  {
                 e.printStackTrace();
             }
 
-            UniqInfo = new String(recvData);
 
-            if (dbManager.userCheck(UniqInfo)) {
+            if (dbManager.userCheck(uniqInfo)) {
 
                 try {
                     SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
@@ -51,18 +49,21 @@ public class APISelector  {
                     otp = digest.digest((secureRandom.nextLong() + "").getBytes());
 
                 } catch (NoSuchAlgorithmException e) {
-                    System.out.print("Fail to generate OTP");
+                    System.out.println("Fail to generate OTP");
                     e.printStackTrace();
 
                 }
 
             } else {
-                System.out.print("Can't find the user");
+                System.out.println("Can't find the user");
+                otp=null;
             }
 
             return otp;
 
         }
+
+
 
 
     }

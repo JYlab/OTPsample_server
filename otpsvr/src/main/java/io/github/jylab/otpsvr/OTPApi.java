@@ -1,7 +1,7 @@
 package io.github.jylab.otpsvr;
 
 public interface OTPApi {
-    void getUniqInfo(String encData);
+    void setUniqInfo(String encData);
     byte[] generateOTP();
 
 }
